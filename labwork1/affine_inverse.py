@@ -60,8 +60,8 @@ Image.fromarray(inverted_translated_image).save('../resources/seu_translated_inv
 # 旋转变换
 angle = 90  # 旋转角度（度）
 theta = np.radians(angle)  # 转换为弧度
-rotation_matrix = np.array([[np.cos(theta), -np.sin(theta), 0],
-                             [np.sin(theta), np.cos(theta), 0],
+rotation_matrix = np.array([[np.cos(theta), np.sin(theta), 0],
+                             [-np.sin(theta), np.cos(theta), 0],
                              [0, 0, 1]])
 # 计算图像中心坐标
 center_x, center_y = original_width / 2, original_height / 2
@@ -83,8 +83,8 @@ rotated_image = np.clip(rotated_image, 0, 255).astype(np.uint8)
 Image.fromarray(rotated_image).save('../resources/seu_rotated.png')
 
 # 旋转的逆变换矩阵
-inverted_rotation_matrix = np.array([[np.cos(-theta), -np.sin(-theta), 0],
-                                      [np.sin(-theta), np.cos(-theta), 0],
+inverted_rotation_matrix = np.array([[np.cos(-theta), np.sin(-theta), 0],
+                                      [-np.sin(-theta), np.cos(-theta), 0],
                                       [0, 0, 1]])
 # 计算逆变换的组合矩阵
 inverted_combined_matrix = translate_back @ (inverted_rotation_matrix @ translate_to_origin)

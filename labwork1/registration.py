@@ -71,7 +71,7 @@ translated_registration_image.save('../resources/seu_translated_registration_ima
 rotated_T = compute_registration_transform(points_initial, points_rotated)
 inversed_rotated_T = np.linalg.inv(rotated_T)
 
-rotated_registration_image = affine_transform_plus(rotated_image_array, rotated_T)
+rotated_registration_image = affine_transform_plus(rotated_image_array, inversed_rotated_T)
 rotated_registration_image = Image.fromarray(rotated_registration_image)
 rotated_registration_image.save('../resources/seu_rotated_registration_image.png')
 
