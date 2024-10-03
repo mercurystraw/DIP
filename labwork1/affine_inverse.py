@@ -7,8 +7,8 @@ init_image_array = np.array(image)
 original_height, original_width, channels = init_image_array.shape
 
 # 存储校徽在大平面上的图片 用于后续比较
-transformed_height = original_height * 4  # 增加高度
-transformed_width = original_width * 4  # 增加宽度
+transformed_height = original_height * 2  # 增加高度
+transformed_width = original_width * 2  # 增加宽度
 transformed_image = np.zeros((transformed_height, transformed_width, channels),dtype=init_image_array.dtype)
 transformed_image[0:original_height, 0:original_width] = init_image_array
 init_image = Image.fromarray(transformed_image)
@@ -17,8 +17,8 @@ init_image.save('../resources/seu_initial.png')
 def affine_transform(image_array, transform_matrix):
     # 获取图像尺寸
     height, width, channels = image_array.shape
-    transformed_height = original_height * 4  # 增加高度
-    transformed_width = original_width * 4  # 增加宽度
+    transformed_height = original_height * 2  # 增加高度
+    transformed_width = original_width * 2  # 增加宽度
     transformed_image = np.zeros((transformed_height, transformed_width, channels), dtype=image_array.dtype)
 
     for y in range(height):

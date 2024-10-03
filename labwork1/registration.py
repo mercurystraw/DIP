@@ -24,8 +24,8 @@ scaled_image_array = np.array(scaled_image)
 def affine_transform_plus(image_array, transform_matrix):
     # 获取图像尺寸
     height, width, channels = image_array.shape
-    transformed_height = original_height * 4  # 增加高度
-    transformed_width = original_width * 4  # 增加宽度
+    transformed_height = original_height * 2  # 增加高度
+    transformed_width = original_width * 2  # 增加宽度
     transformed_image = np.zeros((transformed_height, transformed_width, channels), dtype=image_array.dtype)
 
     for y in range(height):

@@ -150,7 +150,7 @@ def bicubic_interpolation(image, new_height, new_width): # 三次样条插值
 
 
 old_height, old_width = init_image.shape[:2] # 获取原图的大小
-new_height, new_width = old_height*4, old_width*4 # 设置新的高度和宽度
+new_height, new_width = old_height*2, old_width*2 # 设置新的高度和宽度
 
 new_image_nn = nearest_neighbor_interpolation(init_image, new_height, new_width)  # 最近邻插值
 new_image_linear = linear_interpolation(init_image, new_height, new_width)  # 线性插值
