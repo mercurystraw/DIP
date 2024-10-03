@@ -7,7 +7,7 @@ def get_coordinates(event, x, y, flags, param):
         print(f'Clicked coordinates: (x={x}, y={y})')
 
 
-# 加载图像
+# 加载图像 可以根据需求选取其他图像
 image = cv2.imread('../resources/seu_rotated.png')
 
 # 显示窗口

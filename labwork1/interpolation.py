@@ -29,23 +29,18 @@ def nearest_neighbor_interpolation(image, new_height, new_width): # 最近邻插
 def linear_interpolation(image, new_height, new_width): # 线性插值
     old_height, old_width = image.shape[:2]
     channels = image.shape[2]
-
     new_image = np.zeros((new_height, new_width, channels),dtype=np.uint8)
     h_rate = old_height/new_height
     w_rate = old_width/new_width
-
     for i in range(new_height):
         for j in range(new_width): # 这里都同上
             x = i*h_rate
             y = j*w_rate
             x0 = int(x) # 向下取整得到x0
             y0 = int(y) # 向下取整得到y0
-            # 确保坐标在有效范围内
-
             # 计算小数部分
             x_diff = x - x0
             y_diff = y - y0
-
             if x0 == old_height - 1 or y0 == old_width - 1:
                 new_image[i, j] = image[x0, y0]
                 continue
