@@ -8,7 +8,7 @@ def get_coordinates(event, x, y, flags, param):
 
 
 # 加载图像 可以根据需求选取其他图像
-image = cv2.imread('../resources/seu_rotated.png')
+image = cv2.imread('resources_labwork1/seu_rotated.png')
 
 # 显示窗口
 cv2.namedWindow('Image')

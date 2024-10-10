@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image
 import os
 
-image_pth = "../resources/lena.png" # 图片资源存储在resources文件夹下，这里保存使用图片的路径
+image_pth = "./resources_labwork1/lena.png" # 图片资源存储在resources文件夹下，这里保存使用图片的路径
 
 init_image = np.array(Image.open(image_pth)) # 读取图片
 
@@ -157,7 +157,7 @@ new_image_linear = linear_interpolation(init_image, new_height, new_width)  # �
 new_image_bilinear = bilinear_interpolation(init_image, new_height, new_width)  # 双线性插值
 new_image_bicubic = bicubic_interpolation(init_image, new_height, new_width)  # 三次插值
 
-output_dir = '../resources'
+output_dir = 'resources_labwork1'
 Image.fromarray(new_image_nn).save(os.path.join(output_dir, 'lena_nearest_neighbor.png'))
 Image.fromarray(new_image_linear).save(os.path.join(output_dir, 'lena_linear_interpolation.png'))
 Image.fromarray(new_image_bilinear).save(os.path.join(output_dir, 'lena_bilinear_interpolation.png'))

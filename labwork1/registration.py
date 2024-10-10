@@ -4,20 +4,20 @@ from PIL import Image
 
 
 # 读取图像
-image = Image.open('../resources/seu.png')
+image = Image.open('resources_labwork1/seu.png')
 init_image_array = np.array(image)
 original_height, original_width, channels = init_image_array.shape
 
-image_compare_init = Image.open('../resources/seu_initial.png')
+image_compare_init = Image.open('resources_labwork1/seu_initial.png')
 image_compare_init_array = np.array(image_compare_init)
 
-translated_image = Image.open('../resources/seu_translated.png')
+translated_image = Image.open('resources_labwork1/seu_translated.png')
 translated_image_array = np.array(translated_image)
 
-rotated_image = Image.open('../resources/seu_rotated.png')
+rotated_image = Image.open('resources_labwork1/seu_rotated.png')
 rotated_image_array = np.array(rotated_image)
 
-scaled_image = Image.open('../resources/seu_scaled.png')
+scaled_image = Image.open('resources_labwork1/seu_scaled.png')
 scaled_image_array = np.array(scaled_image)
 
 
@@ -83,9 +83,10 @@ inversed_translated_T = np.linalg.inv(translated_T)
 translated_registration_image = affine_transform_plus(translated_image_array, inversed_translated_T)
 
 translated_registration_image = Image.fromarray(translated_registration_image)
-translated_registration_image.save('../resources/seu_translated_registration_image.png')
+translated_registration_image.save('./resources_labwork1/seu_translated_registration_image.png')
 # 计算差异图像并保存
-save_difference_image(image_compare_init_array, translated_registration_image, '../resources/seu_translated_difference_image.png')
+save_difference_image(image_compare_init_array, translated_registration_image,
+                      'resources_labwork1/seu_translated_difference_image.png')
 
 # 旋转配准
 rotated_T = compute_registration_transform(points_initial, points_rotated)
@@ -93,13 +94,15 @@ inversed_rotated_T = np.linalg.inv(rotated_T)
 
 rotated_registration_image = affine_transform_plus(rotated_image_array, inversed_rotated_T)
 rotated_registration_image = Image.fromarray(rotated_registration_image)
-rotated_registration_image.save('../resources/seu_rotated_registration_image.png')
-save_difference_image(image_compare_init_array, rotated_registration_image, '../resources/seu_rotated_difference_image.png')
+rotated_registration_image.save('./resources_labwork1/seu_rotated_registration_image.png')
+save_difference_image(image_compare_init_array, rotated_registration_image,
+                      'resources_labwork1/seu_rotated_difference_image.png')
 # 缩放配准
 scaled_T = compute_registration_transform(points_initial, points_scaled)
 inversed_scaled_T = np.linalg.inv(scaled_T)
 
 scaled_registration_image = affine_transform_plus(scaled_image_array, inversed_scaled_T)
 scaled_registration_image = Image.fromarray(scaled_registration_image)
-scaled_registration_image.save('../resources/seu_scaled_registration_image.png')
-save_difference_image(image_compare_init_array, scaled_registration_image, '../resources/seu_scaled_difference_image.png')
+scaled_registration_image.save('./resources_labwork1/seu_scaled_registration_image.png')
+save_difference_image(image_compare_init_array, scaled_registration_image,
+                      'resources_labwork1/seu_scaled_difference_image.png')

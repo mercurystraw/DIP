@@ -13,31 +13,31 @@ def show_images(images, titles, rows=1, cols=5):
 
 # 图片和标题的列表
 images_list_rotated = [
-    "../resources/seu_initial.png",
-    "../resources/seu_rotated.png",
-    "../resources/seu_rotated_inverted.png",
-    "../resources/seu_rotated_registration_image.png",
-    "../resources/seu_rotated_difference_image.png"
+    "./resources_labwork1/seu_initial.png",
+    "./resources_labwork1/seu_rotated.png",
+    "./resources_labwork1/seu_rotated_inverted.png",
+    "./resources_labwork1/seu_rotated_registration_image.png",
+    "./resources_labwork1/seu_rotated_difference_image.png"
 ]
 
 titles_rotated = ["Original", "Rotated", "Inverted", "Registered", "Difference"]
 
 images_list_scaled = [
-    "../resources/seu_initial.png",
-    "../resources/seu_scaled.png",
-    "../resources/seu_scaled_inverted.png",
-    "../resources/seu_scaled_registration_image.png",
-    "../resources/seu_scaled_difference_image.png"
+    "./resources_labwork1/seu_initial.png",
+    "./resources_labwork1/seu_scaled.png",
+    "./resources_labwork1/seu_scaled_inverted.png",
+    "./resources_labwork1/seu_scaled_registration_image.png",
+    "./resources_labwork1/seu_scaled_difference_image.png"
 ]
 
 titles_scaled = ["Original", "Scaled", "Inverted", "Registered", "Difference"]
 
 images_list_translated = [
-    "../resources/seu_initial.png",
-    "../resources/seu_translated.png",
-    "../resources/seu_translated_inverted.png",
-    "../resources/seu_translated_registration_image.png",
-    "../resources/seu_translated_difference_image.png"
+    "./resources_labwork1/seu_initial.png",
+    "./resources_labwork1/seu_translated.png",
+    "./resources_labwork1/seu_translated_inverted.png",
+    "./resources_labwork1/seu_translated_registration_image.png",
+    "./resources_labwork1/seu_translated_difference_image.png"
 ]
 
 titles_translated = ["Original", "Translated", "Inverted", "Registered", "Difference"]

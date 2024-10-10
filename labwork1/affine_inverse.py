@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 # 读取图像
-image = Image.open('../resources/seu.png')
+image = Image.open('resources_labwork1/seu.png')
 init_image_array = np.array(image)
 original_height, original_width, channels = init_image_array.shape
 
@@ -12,7 +12,7 @@ transformed_width = original_width * 2  # 增加宽度
 transformed_image = np.zeros((transformed_height, transformed_width, channels),dtype=init_image_array.dtype)
 transformed_image[0:original_height, 0:original_width] = init_image_array
 init_image = Image.fromarray(transformed_image)
-init_image.save('../resources/seu_initial.png')
+init_image.save('./resources_labwork1/seu_initial.png')
 
 def affine_transform(image_array, transform_matrix):
     # 获取图像尺寸
@@ -46,7 +46,7 @@ translation_matrix = np.array([[1, 0, tx],
 translated_image = affine_transform(init_image_array, translation_matrix)
 # 确保数据类型为 uint8
 translated_image = np.clip(translated_image, 0, 255).astype(np.uint8)
-Image.fromarray(translated_image).save('../resources/seu_translated.png')
+Image.fromarray(translated_image).save('resources_labwork1/seu_translated.png')
 
 # 平移的逆变换 调用Numpy的linalg.inv()函数求逆矩阵
 inverted_translation_matrix = np.linalg.inv(translation_matrix)
@@ -54,7 +54,7 @@ translated_image_array = np.array(translated_image)
 # 对逆变换的结果进行处理
 inverted_translated_image = affine_transform(translated_image_array, inverted_translation_matrix)
 inverted_translated_image = np.clip(inverted_translated_image, 0, 255).astype(np.uint8)
-Image.fromarray(inverted_translated_image).save('../resources/seu_translated_inverted.png')
+Image.fromarray(inverted_translated_image).save('resources_labwork1/seu_translated_inverted.png')
 
 
 # 旋转变换
@@ -80,7 +80,7 @@ combined_matrix = translate_back @ (rotation_matrix @ translate_to_origin)
 rotated_image = affine_transform(init_image_array, combined_matrix)
 # 确保数据类型为 uint8
 rotated_image = np.clip(rotated_image, 0, 255).astype(np.uint8)
-Image.fromarray(rotated_image).save('../resources/seu_rotated.png')
+Image.fromarray(rotated_image).save('resources_labwork1/seu_rotated.png')
 
 # 旋转的逆变换矩阵
 inverted_rotation_matrix = np.array([[np.cos(-theta), np.sin(-theta), 0],
@@ -91,7 +91,7 @@ inverted_combined_matrix = translate_back @ (inverted_rotation_matrix @ translat
 # 应用逆旋转变换
 inverted_rotated_image = affine_transform(rotated_image, inverted_combined_matrix)
 inverted_rotated_image = np.clip(inverted_rotated_image, 0, 255).astype(np.uint8)
-Image.fromarray(inverted_rotated_image).save('../resources/seu_rotated_inverted.png')
+Image.fromarray(inverted_rotated_image).save('resources_labwork1/seu_rotated_inverted.png')
 
 # 放缩变换矩阵
 cx, cy = 1.5, 1.5  # x 和 y 方向的缩放因子
@@ -102,7 +102,7 @@ scaling_matrix = np.array([[cx, 0, 0],
 # 放缩变换
 scaled_image = affine_transform(init_image_array, scaling_matrix)
 scaled_image = np.clip(scaled_image, 0, 255).astype(np.uint8)
-Image.fromarray(scaled_image).save('../resources/seu_scaled.png')
+Image.fromarray(scaled_image).save('resources_labwork1/seu_scaled.png')
 
 # 放缩的逆变换 可以直接写出来
 inverted_scaling_matrix = np.array([[1/cx, 0, 0],
@@ -110,4 +110,4 @@ inverted_scaling_matrix = np.array([[1/cx, 0, 0],
                                      [0, 0, 1]])
 inverted_scaled_image = affine_transform(scaled_image, inverted_scaling_matrix)
 inverted_scaled_image = np.clip(inverted_scaled_image, 0, 255).astype(np.uint8)
-Image.fromarray(inverted_scaled_image).save('../resources/seu_scaled_inverted.png')
+Image.fromarray(inverted_scaled_image).save('resources_labwork1/seu_scaled_inverted.png')
