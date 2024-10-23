@@ -13,7 +13,7 @@ image_paths = [
 def histogram_equalization(img):
     # 计算图像的直方图
     # 调用flatten函数，将图像展平为一维数组用于灰度累计
-    hist, _ = np.histogram(img.flatten(), bins=256, range=[0, 256])
+    hist, _ = np.histogram(img.flatten(), bins=256, range=[0, 255])
 
     # 计算累积分布函数（CDF）
     cdf = hist.cumsum()
