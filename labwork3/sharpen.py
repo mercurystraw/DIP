@@ -30,7 +30,7 @@ def laplacian_sharpen(image):
     if len(image.shape) == 3:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    c= 2.0
+    c= -1.0
     laplacian = compute_laplacian(image)
     cv2.imwrite('./resources_labwork3/moon_laplacian.png', laplacian)
 
