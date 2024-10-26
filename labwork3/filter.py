@@ -57,16 +57,24 @@ image2_2 = cv2.imread('./resources_labwork3/img2_2.png', cv2.IMREAD_GRAYSCALE)
 
 # 应用高斯滤波
 gaussian_filtered_image1_1 = gaussian_filter(image1_1)
+gaussian_filtered_image1_2 = gaussian_filter(image1_2)
 gaussian_filtered_image2_1 = gaussian_filter(image2_1)
+gaussian_filtered_image2_2 = gaussian_filter(image2_2)
 #均值滤波
+median_filtered_image1_1 = median_filter(image1_1)
 median_filtered_image1_2 = median_filter(image1_2)
+median_filtered_image2_1 = median_filter(image2_1)
 median_filtered_image2_2 = median_filter(image2_2)
 
 
 # 保存滤波结果
 cv2.imwrite('./resources_labwork3/gaussian_filtered_image1_1.png', gaussian_filtered_image1_1)
+cv2.imwrite('./resources_labwork3/gaussian_filtered_image1_2.png', gaussian_filtered_image1_2)
 cv2.imwrite('./resources_labwork3/gaussian_filtered_image2_1.png', gaussian_filtered_image2_1)
+cv2.imwrite('./resources_labwork3/gaussian_filtered_image2_2.png', gaussian_filtered_image2_2)
+cv2.imwrite('./resources_labwork3/median_filtered_image1_1.png', median_filtered_image1_1)
 cv2.imwrite('./resources_labwork3/median_filtered_image1_2.png', median_filtered_image1_2)
+cv2.imwrite('./resources_labwork3/median_filtered_image2_1.png', median_filtered_image2_1)
 cv2.imwrite('./resources_labwork3/median_filtered_image2_2.png', median_filtered_image2_2)
 
 print("过滤后的图像已保存。")
