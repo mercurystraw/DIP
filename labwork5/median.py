@@ -25,7 +25,7 @@ def adaptive_median_filter(image, max_size):
     h, w = image.shape
     for i in range(1, h - 1):
         for j in range(1, w - 1):
-            size = 1
+            size = 3
             while size <= max_size:
                 k = size // 2
                 if i - k < 0 or i+k >= h or j-k < 0 or j+k >= w:
