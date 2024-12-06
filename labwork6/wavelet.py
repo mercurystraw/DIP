@@ -32,23 +32,17 @@ def wavelet(image, wavelet, threshold=20):
 def wavelet_edge_detection(image, wavelet, level=3):
     # 将图像转换为浮点数类型
     image = image.astype(np.float32) / 255.0
-
     # 小波分解
     coeffs = pywt.wavedec2(image, wavelet, level=level)
-
     # 提取近似分量和细节系数（水平、垂直、对角线）
     approx_coeff = coeffs[0]
     detail_coeffs = coeffs[1:]
 
-    # 消除近似分量（将其设为零）
     approx_coeff *= 0
 
-    # 重建图像（反变换）
+    # 反变换
     reconstructed_image = pywt.waverec2([approx_coeff] + detail_coeffs, wavelet)
-
-    # 将重建图像转换为 uint8 数据类型
     edge_image = np.clip(reconstructed_image * 255, 0, 255).astype(np.uint8)
-
     return edge_image
 
 
