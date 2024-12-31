@@ -13,24 +13,18 @@ else:
 # 二值化
 _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-# 定义结构元素
+# 定义核
 kernel = np.ones((3, 3), np.uint8)
-
-# 反复的腐蚀和膨胀
 skeleton = np.zeros_like(binary_image)
-
-#骨架提取操作
+# 骨架提取 反复的腐蚀和膨胀
 while True:
-    # 腐蚀操作
+    # 腐蚀
     eroded = cv2.erode(binary_image, kernel)
-
-    # 膨胀操作
+    # 膨胀
     dilated = cv2.dilate(eroded, kernel)
-
     # 不断将检测到的骨架部分添加到已有的骨架上
     skeleton = cv2.bitwise_or(skeleton, cv2.subtract(binary_image, dilated))
-
-    if cv2.countNonZero(eroded) == 0: # 终止条件 不再变化
+    if cv2.countNonZero(eroded) == 0: # 如果腐蚀后的图像不再包括前景像素
         break
 
     binary_image = eroded.copy()
