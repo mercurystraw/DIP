@@ -30,8 +30,9 @@ def localthresh(image, nhood, a, b, meantype='local'):
 
 I1 = io.imread('./resources_labwork8/4.png')
 I1 = cv2.GaussianBlur(I1, (3, 3), 0)  # 高斯模糊
-I1 = tofloat(I1)  # 改变图像类型
+I1 = tofloat(I1)  # 将图像转换为浮点数并归一化
 
+# 计算局部标准差图像
 SIG = generic_filter(I1, np.std, footprint=np.ones((3, 3)))
 # 利用局部标准差的方法对图像进行分割
 g = localthresh(I1, np.ones((3, 3)), 30, 1.5, 'global')
